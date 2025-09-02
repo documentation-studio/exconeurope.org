@@ -410,11 +410,9 @@
           const ab = document.querySelector(".ab");
           const loader = document.querySelector(".loader");
           if (!window.mlScriptLoaded) {
-            if (ab) {
-              ab.classList.remove("hidden");
-              loader.classList.add("hidden");
-            }
+            if (ab) ab.classList.remove("hidden");
           }
+          if (loader) loader.classList.add("hidden");
         }, 1000);
       });
     </script>
