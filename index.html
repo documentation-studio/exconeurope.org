@@ -18,19 +18,28 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
       rel="stylesheet"
     />
-    <!-- MailerLite Universal -->
     <script>
       (function (w, d, e, u, f, l, n) {
-        (w[f] =
+        w.mlScriptLoaded = false;
+
+        w[f] =
           w[f] ||
           function () {
             (w[f].q = w[f].q || []).push(arguments);
-          }),
-          (l = d.createElement(e)),
-          (l.async = 1),
-          (l.src = u),
-          (n = d.getElementsByTagName(e)[0]),
-          n.parentNode.insertBefore(l, n);
+          };
+
+        l = d.createElement(e);
+        l.async = 1;
+        l.src = u;
+
+        l.onload = function () {
+          w.mlScriptLoaded = true;
+          const loader = document.querySelector(".loader");
+          loader?.classList.add("hidden");
+        };
+
+        n = d.getElementsByTagName(e)[0];
+        n.parentNode.insertBefore(l, n);
       })(
         window,
         document,
@@ -38,10 +47,10 @@
         "https://assets.mailerlite.com/js/universal.js",
         "ml"
       );
+
       ml("account", "1690742");
     </script>
-    <!-- End MailerLite Universal -->
-    <!-- End MailerLite Universal -->
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -118,6 +127,7 @@
         border-radius: 12px;
       }
 
+      #excon-timeline,
       .sponsors {
         margin-top: 4rem;
         padding: 2rem;
@@ -126,19 +136,49 @@
         border-radius: 12px;
       }
 
+      #timeline-heading {
+        color: var(--accent);
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        font-weight: 400;
+        margin: 0 0 10px 0;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .timeline {
+        margin-left: 2rem;
+      }
+
+      time {
+        color: var(--accent);
+      }
+
       .footer {
         margin-top: 4rem;
         font-size: 0.9rem;
         color: #999;
         text-align: center;
       }
+
+      .loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+      }
+
+      .hidden {
+        display: none;
+      }
     </style>
   </head>
   <body>
     <h1>EX//CON 2026<span>The Experience Conference</span></h1>
     <p>
-      <strong>UX. DX. Docs. Design Systems. Experience Engineering.</strong> Where they all
-      come together — in one online-first event built for makers, not marketers.
+      <strong>UX. DX. Docs. Design Systems. Experience Engineering.</strong>
+      Where they all come together — in one online-first event built for makers,
+      not marketers.
     </p>
     <p>
       EX//CON is a online-first, community-driven conference focused on the
@@ -153,14 +193,143 @@
     <h2>What to expect</h2>
     <ul>
       <li>6–8 curated talks from top UX, DX, and design system experts</li>
-      <li>One track, one day — no FOMO, just flow</li>
+      <li>Lightning talks and roundtable discussions</li>
+      <li>One track, one day</li>
       <li>Virtual pub afterparty with a live DJ stream</li>
-      <li>Online-first attendance — supported by sponsors and donors</li>
-      <li>European timezone, no 3AM replays required</li>
+      <li>Online-first attendance supported by sponsors and donors</li>
+      <li>European timezone</li>
     </ul>
+
+    <section id="excon-timeline" aria-labelledby="timeline-heading">
+      <h2 id="timeline-heading">What happens next?</h2>
+
+      <ol class="timeline" role="list">
+        <li itemscope itemtype="https://schema.org/Event">
+          <h3 itemprop="name">Sponsor outreach begins</h3>
+          <p>
+            <time itemprop="startDate" datetime="2025-09">Fall 2025</time>
+          </p>
+        </li>
+
+        <li itemscope itemtype="https://schema.org/Event">
+          <h3 itemprop="name">Venue &amp; date announced</h3>
+          <p>
+            <time itemprop="startDate" datetime="2025-11">Nov 2025</time>
+          </p>
+        </li>
+
+        <li itemscope itemtype="https://schema.org/Event">
+          <h3 itemprop="name">Call for Papers &amp; Sponsors opens</h3>
+          <p>
+            <time itemprop="startDate" datetime="2026-01">Jan 2026</time>
+          </p>
+        </li>
+
+        <li itemscope itemtype="https://schema.org/Event">
+          <h3 itemprop="name">CFP closes</h3>
+          <p>
+            <time itemprop="startDate" datetime="2026-05">May 2026</time>
+          </p>
+        </li>
+
+        <li itemscope itemtype="https://schema.org/Event">
+          <h3 itemprop="name">
+            Full schedule &amp; final attendee info published
+          </h3>
+          <p>
+            <time itemprop="startDate" datetime="2026-06">Jun 2026</time>
+          </p>
+        </li>
+
+        <li itemscope itemtype="https://schema.org/Event">
+          <h3 itemprop="name">EX//CON Conference Day</h3>
+          <p>
+            <time itemprop="startDate" datetime="2026-09-04">Early September 2026</time>
+          </p>
+        </li>
+      </ol>
+    </section>
 
     <div class="signup">
       <div class="ml-embedded" data-form="9ZdnA5"></div>
+      <div class="ab hidden">
+        <h2>Oops, seems our sign up form got caught by your ad blocker</h2>
+        <p>
+          Please temporarily disable your ad blocker or whitelist our site to
+          sign up for updates.
+        </p>
+        <small>
+          We use MailerLite to manage our email list. Some adblock lists block
+          their scripts, which prevents you from signing up. We promise not to
+          spam you. Just occasional updates about the event. Your data is safe
+          with us.
+        </small>
+      </div>
+      <div class="loader">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 200 200"
+          width="90"
+        >
+          <rect
+            fill="#384F52"
+            stroke="#384F52"
+            stroke-width="15"
+            width="30"
+            height="30"
+            x="25"
+            y="50"
+          >
+            <animate
+              attributeName="y"
+              calcMode="spline"
+              dur="2"
+              values="50;120;50;"
+              keySplines=".5 0 .5 1;.5 0 .5 1"
+              repeatCount="indefinite"
+              begin="-.4"
+            ></animate>
+          </rect>
+          <rect
+            fill="#384F52"
+            stroke="#384F52"
+            stroke-width="15"
+            width="30"
+            height="30"
+            x="85"
+            y="50"
+          >
+            <animate
+              attributeName="y"
+              calcMode="spline"
+              dur="2"
+              values="50;120;50;"
+              keySplines=".5 0 .5 1;.5 0 .5 1"
+              repeatCount="indefinite"
+              begin="-.2"
+            ></animate>
+          </rect>
+          <rect
+            fill="#384F52"
+            stroke="#384F52"
+            stroke-width="15"
+            width="30"
+            height="30"
+            x="145"
+            y="50"
+          >
+            <animate
+              attributeName="y"
+              calcMode="spline"
+              dur="2"
+              values="50;120;50;"
+              keySplines=".5 0 .5 1;.5 0 .5 1"
+              repeatCount="indefinite"
+              begin="0"
+            ></animate>
+          </rect>
+        </svg>
+      </div>
     </div>
 
     <div class="sponsors">
@@ -169,7 +338,10 @@
         Want to support experience engineering, help keep the event free, and
         get your brand in front of the community?
       </p>
-      <p>Sponsor deck coming soon!</p>
+      <p>
+        Reach out to us at
+        &#115;&#116;&#097;&#102;&#102;&#064;&#101;&#120;&#099;&#111;&#110;&#101;&#117;&#114;&#111;&#112;&#101;&#046;&#111;&#114;&#103;
+      </p>
       <p>Sponsorship includes:</p>
       <ul>
         <li>Logo on site and stream</li>
@@ -184,6 +356,9 @@
         Powered by community & caffeine. And AI.<br />
         Want to help fund it? <a href="#donate">Tip jar coming soon.</a>
       </p>
+      <p>
+        &copy; 2025 EX//CON Europe. All rights reserved. | <a href="/privacy-policy.html" rel="noindex nofollow" target="_blank">Privacy Policy</a>
+      </p>
     </div>
 
     <meta
@@ -196,10 +371,7 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://exconeurope.org/" />
-    <meta
-      property="og:image"
-      content="https://exconeurope.org/og.png"
-    />
+    <meta property="og:image" content="https://exconeurope.org/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
@@ -209,10 +381,7 @@
       name="twitter:description"
       content="EX//CON 2026: A community-driven, online-first conference for UX, DX, design systems, and experience engineering. Late summer 2026. European timezone. Free to attend."
     />
-    <meta
-      name="twitter:image"
-      content="https://exconeurope.org/og.png"
-    />
+    <meta name="twitter:image" content="https://exconeurope.org/og.png" />
     <link rel="canonical" href="https://exconeurope.org/" />
     <script type="application/ld+json">
       {
@@ -234,6 +403,20 @@
           "url": "https://exconeurope.org/"
         }
       }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+          const ab = document.querySelector(".ab");
+          const loader = document.querySelector(".loader");
+          if (!window.mlScriptLoaded) {
+            if (ab) {
+              ab.classList.remove("hidden");
+              loader.classList.add("hidden");
+            }
+          }
+        }, 1000);
+      });
     </script>
   </body>
 </html>
